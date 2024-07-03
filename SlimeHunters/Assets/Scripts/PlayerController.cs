@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     void GetInput()
     {
-        if (view.IsMine)
+        if (!view.IsMine)
         {
             Vector3 inputDir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), Input.GetAxis("Jump"));
             inputDir.Normalize();
