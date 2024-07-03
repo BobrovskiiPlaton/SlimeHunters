@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         StartingRotation = transform.rotation;
-
+        player = transform.Find("Player");
         Cursor.lockState = CursorLockMode.Locked;
         camera = GetComponentInChildren<Camera>();
         view = GetComponent<PhotonView>();
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     void GetInput()
     {
-        if (!view.IsMine)
+        if (view.IsMine)
         {
             Vector3 inputDir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), Input.GetAxis("Jump"));
             inputDir.Normalize();
