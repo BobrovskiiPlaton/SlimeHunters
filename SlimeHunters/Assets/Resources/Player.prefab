@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 5449563510757673646}
   - component: {fileID: 1588765922867669579}
   - component: {fileID: 3176396782042897376}
+  - component: {fileID: 3341668453715871325}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -200,7 +201,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
-  player: {fileID: 5449563510757673632}
   camera: {fileID: 5449563509853893096}
   sensitivity: 5
 --- !u!54 &5449563510757673646
@@ -272,6 +272,20 @@ MonoBehaviour:
     InterpolateLerpSpeed: 5
   m_ScaleModel:
     SynchronizeEnabled: 1
-    InterpolateOption: 2
+    InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0
+    InterpolateLerpSpeed: 1
+--- !u!114 &3341668453715871325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5449563510757673636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015457eb5461ca748aaa679f475305f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerController: {fileID: 5449563510757673633}
+  _camera: {fileID: 5449563509853893098}
