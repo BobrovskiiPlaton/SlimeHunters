@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         StartingRotation = transform.rotation;
-        player = transform.Find("Player");
+        player = gameObject.transform;
         Cursor.lockState = CursorLockMode.Locked;
         camera = GetComponentInChildren<Camera>();
         view = GetComponent<PhotonView>();
