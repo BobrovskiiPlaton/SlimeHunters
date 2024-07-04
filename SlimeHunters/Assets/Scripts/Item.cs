@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Item: MonoBehaviour
 {
@@ -15,6 +16,6 @@ public class Item: MonoBehaviour
 
     public void PickUp(Interactor interactor)
     {
-        Destroy(gameObject);
+        PhotonNetwork.Destroy(gameObject);
     }
 }
