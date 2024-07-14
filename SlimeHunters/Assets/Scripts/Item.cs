@@ -6,13 +6,8 @@ using Photon.Pun;
 
 public class Item: MonoBehaviour
 {
-    /*public enum Type
-    {
-        Cube,
-        NotCube
-    }
-
-    public Type itemType;*/
+    public Vector3 pickUpPosition;
+    public Vector3 pickUpRotation;
 
     public void PickUp(Interactor interactor)
     {

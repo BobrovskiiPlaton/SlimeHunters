@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
-        Vector3 inputDir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), Input.GetAxis("Jump"));
+        Vector3 inputDir = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), Input.GetAxisRaw("Jump"));
         inputDir.Normalize();
         Vector3 velocity = (transform.forward * inputDir.y + transform.right * inputDir.x + transform.up * inputDir.z) *
                            _speed;
