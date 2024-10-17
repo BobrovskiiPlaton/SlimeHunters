@@ -15,15 +15,24 @@ public class Item: MonoBehaviour
     }*/
     private Transform _originalParent;
     private Rigidbody _rb;
+    private PhotonView photonView;
 
     void Start()
     {
         _originalParent = transform.parent;
         _rb = GetComponent<Rigidbody>();
+        photonView = GetComponent<PhotonView>();
     }
 
     public void PickUp(Transform handTransform)
     {
+        photonView.RPC("RPC_PickUp", RpcTarget.All, handTransform.GetComponent<PhotonView>().ViewID);
+    }
+
+    [PunRPC]
+    public void RPC_PickUp(int handTransformViewID)
+    {
+        Transform handTransform = PhotonView.Find(handTransformViewID).transform;
         _rb.isKinematic = true;
         transform.SetParent(handTransform);
         transform.position = handTransform.position;
@@ -31,7 +40,13 @@ public class Item: MonoBehaviour
 
     public void Drop()
     {
+        photonView.RPC("RPC_Drop", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPC_Drop()
+    {
         _rb.isKinematic = false;
-        transform.SetParent(null);
+        transform.SetParent(_originalParent);
     }
 }
