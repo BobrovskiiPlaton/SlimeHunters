@@ -145,15 +145,26 @@ public class PlayerController : MonoBehaviour
             if (item != null)
             {
                 carriedItem = item;
-                item.PickUp(handTransform);
+                PhotonView handPhotonView = handTransform.GetComponent<PhotonView>();
+                if (handPhotonView != null)
+                {
+                    item.PickUp(handTransform);
+                }
+                else
+                {
+                    Debug.LogError("PhotonView на handTransform не найден!");
+                }
             }
         }
     }
 
     private void DropItem()
     {
-        carriedItem.Drop();
-        carriedItem = null;
+        if (carriedItem != null)
+        {
+            carriedItem.Drop();
+            carriedItem = null;
+        }
     }
     
     private void OnDrawGizmos()
