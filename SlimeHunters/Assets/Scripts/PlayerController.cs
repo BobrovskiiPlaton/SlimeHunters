@@ -51,11 +51,6 @@ public class PlayerController : MonoBehaviour
         GetInput();
     }
 
-    private void FixedUpdate()
-    {
-        
-    }
-
     void GetInput()
     {
         MovePlayer();
